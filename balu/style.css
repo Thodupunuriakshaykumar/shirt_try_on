@@ -1,0 +1,267 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #2b1055 0%, #7597de 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    overflow-x: hidden;
+    position: relative;
+}
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* Glass Container */
+.glass-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 1.5rem;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    z-index: 2;
+    width: 90%;
+    max-width: 600px;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Header Styles */
+.header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards 0.3s;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+h2 {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1rem;
+}
+
+/* Button Container */
+.button-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+    width: 100%;
+    margin-bottom: 0.8rem;
+}
+
+.full-width-button-container {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.full-width-button {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.full-width-button:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* Button Styles */
+.cta-button {
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.cta-button:nth-child(1) { animation: fadeInUp 0.8s ease forwards 0.4s; }
+.cta-button:nth-child(2) { animation: fadeInUp 0.8s ease forwards 0.5s; }
+.cta-button:nth-child(3) { animation: fadeInUp 0.8s ease forwards 0.6s; }
+.cta-button:nth-child(4) { animation: fadeInUp 0.8s ease forwards 0.7s; }
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button:hover::before {
+    left: 100%;
+}
+
+.cta-button:active {
+    transform: translateY(-1px);
+}
+
+.button-icon {
+    font-size: 1.4rem;
+    transition: transform 0.3s ease;
+}
+
+.cta-button:hover .button-icon {
+    transform: scale(1.2);
+}
+
+/* Footer */
+.footer {
+    position: fixed;
+    bottom: 1rem;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Background Blurred Shapes */
+.blur-shape {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+    z-index: 0;
+    animation: float 20s infinite ease-in-out;
+}
+
+.blur-shape:nth-child(1) {
+    width: 400px;
+    height: 400px;
+    background: #ff00ff;
+    top: -200px;
+    left: -200px;
+    animation-delay: 0s;
+}
+
+.blur-shape:nth-child(2) {
+    width: 300px;
+    height: 300px;
+    background: #4b0082;
+    bottom: -150px;
+    right: -150px;
+    animation-delay: -5s;
+}
+
+.blur-shape:nth-child(3) {
+    width: 200px;
+    height: 200px;
+    background: #9400d3;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-delay: -10s;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate(20px, 20px) rotate(180deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+    }
+}
+
+/* Current Website Info */
+.current-website-info {
+    display: none;
+}
+
+/* Remove the features and website-info sections */
+.features, .website-info {
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 0.9rem;
+    }
+
+    .glass-container {
+        padding: 1.2rem;
+    }
+
+    .cta-button {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.9rem;
+    }
+} 
